@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+ans_path="$(cd "$(dirname "$0")" && pwd)"
+q_path="$ans_path/.."
+
+cat $q_path/nums2 | sed 's/./&\n/g' | awk 'BEGIN{odd="";even=""}{if($1%2==0){odd=odd" ";even=even$1}else{odd=odd$1;even=even" "}}END{print odd; print even}'
